@@ -16,34 +16,34 @@ function refreshWeatherData(response) {
   windSpeed.innerHTML = Math.round(speed);
   theHumidity.innerHTML = humidit;
   currentDate.innerHTML = formatDate(time);
+}
 
-  function formatDate(time) {
-    let day = time.getDate();
-    let hour = time.getHours();
-    let minute = time.getMinutes();
-    let months = ["Jan", "Feb", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let month = months[time.getMonth() - 1];
+function formatDate(time) {
+  let day = time.getDate();
+  let hour = time.getHours();
+  let minute = time.getMinutes();
+  let months = ["Jan", "Feb", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  let month = months[time.getMonth() - 1];
 
-    if (day < 10) {
-      day = `0${day}`;
-     } else {
-       day = day;
-     }
-   
-     if (hour < 10) {
-       hour = `0${hour}`;
-     } else {
-       hour = hour;
-     }
-   
-     if (minute < 10) {
-       minute = `0${minute}`
-     } else {
-       minute = minute;
-     }
+  if (day < 10) {
+    day = `0${day}`;
+   } else {
+     day = day;
+   }
+ 
+   if (hour < 10) {
+     hour = `0${hour}`;
+   } else {
+     hour = hour;
+   }
+ 
+   if (minute < 10) {
+     minute = `0${minute}`
+   } else {
+     minute = minute;
+   }
 
-     return `${day} ${month}, ${hour}:${minute}`;
-  }
+   return `${day} ${month}, ${hour}:${minute}`;
 }
 
 function getCityObect(city) {
