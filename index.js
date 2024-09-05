@@ -10,37 +10,40 @@ function refreshWeatherData(response) {
   let currentDate = document.querySelector("#date");
   let time = new Date(response.data.time * 1000);
 
-  let day = time.getDate();
-  let hour = time.getHours();
-  let minute = time.getMinutes();
-  let months = ["Jan", "Feb", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  let month = months[time.getMonth() - 1];
-
   tempDescription.innerHTML = response.data.condition.description;
   searchedCity.innerHTML = response.data.city;
   currentTemp.innerHTML = Math.round(temperature);
   windSpeed.innerHTML = Math.round(speed);
   theHumidity.innerHTML = humidit;
+  currentDate.innerHTML = formatDate(time);
 
-  if (day < 10) {
-   day = `0${day}`;
-  } else {
-    day = day;
+  function formatDate(time) {
+    let day = time.getDate();
+    let hour = time.getHours();
+    let minute = time.getMinutes();
+    let months = ["Jan", "Feb", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let month = months[time.getMonth() - 1];
+
+    if (day < 10) {
+      day = `0${day}`;
+     } else {
+       day = day;
+     }
+   
+     if (hour < 10) {
+       hour = `0${hour}`;
+     } else {
+       hour = hour;
+     }
+   
+     if (minute < 10) {
+       minute = `0${minute}`
+     } else {
+       minute = minute;
+     }
+
+     return `${day} ${month}, ${hour}:${minute}`;
   }
-
-  if (hour < 10) {
-    hour = `0${hour}`;
-  } else {
-    hour = hour;
-  }
-
-  if (minute < 10) {
-    minute = `0${minute}`
-  } else {
-    minute = minute;
-  }
-
-  currentDate.innerHTML = `${day} ${month}, ${hour}:${minute}`;
 }
 
 function getCityObect(city) {
