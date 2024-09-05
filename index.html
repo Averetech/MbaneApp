@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,10 +16,11 @@
   <body>
     <div class="container">
       <div class="header">
-        <form class="submit-form">
+        <form class="submit-form" id="submit-form">
           <input
             type="text"
             name="city"
+            id="search-form-input"
             placeholder="Enter a city..."
             class="search-form-input"
           />
@@ -32,10 +34,10 @@
       </div>
       <div class="main">
         <div class="top-part">
-          <h1 class="city">Cape Town, South Africa</h1>
+          <h1 class="city" id="searched-city"></h1>
           <p class="date">05 Sep, 11:40</p>
           <p class="emoji">⛅</p>
-          <h2 class="current-temp">20°C</h2>
+          <h2 class="current-temp"><span id="current-temp"></span>°C</h2>
           <p class="temp-description">Mostly Clear</p>
         </div>
         <div class="bottom-part">
@@ -67,5 +69,7 @@
         </p>
       </div>
     </div>
+
+    <script src="index.js"></script>
   </body>
 </html>
