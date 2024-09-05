@@ -1,0 +1,13 @@
+body {
+  background-color: #545253;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  padding: 30px;
+  max-width: 500px;
+  margin: 40px auto;
+  border-radius: 10px;
+  background-color: #191718;
+}
