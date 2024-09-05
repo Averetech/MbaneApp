@@ -59,10 +59,9 @@ body {
   margin: 10px;
 }
 
-.emoji {
-  margin: 20px 0 5px 0;
-  font-size: 80px;
-  text-align: center;
+.icon {
+  display: block;
+  margin: 6px auto;
 }
 
 .current-temp {

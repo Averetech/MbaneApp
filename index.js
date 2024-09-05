@@ -9,6 +9,11 @@ function refreshWeatherData(response) {
   let humidit = response.data.temperature.humidity;
   let currentDate = document.querySelector("#date");
   let time = new Date(response.data.time * 1000);
+  let iconImage = document.querySelector("#icon");
+  iconImage.innerHTML = `<img src="${response.data.condition.icon_url}" class="icon" />`
+
+
+  console.log(response.data.condition.icon_url)
 
   tempDescription.innerHTML = response.data.condition.description;
   searchedCity.innerHTML = response.data.city;
