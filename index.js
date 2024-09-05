@@ -7,12 +7,40 @@ function refreshWeatherData(response) {
   let speed = response.data.wind.speed;
   let theHumidity = document.querySelector("#humidity");
   let humidit = response.data.temperature.humidity;
+  let currentDate = document.querySelector("#date");
+  let time = new Date(response.data.time * 1000);
+
+  let day = time.getDate();
+  let hour = time.getHours();
+  let minute = time.getMinutes();
+  let months = ["Jan", "Feb", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  let month = months[time.getMonth() - 1];
 
   tempDescription.innerHTML = response.data.condition.description;
   searchedCity.innerHTML = response.data.city;
   currentTemp.innerHTML = Math.round(temperature);
   windSpeed.innerHTML = Math.round(speed);
   theHumidity.innerHTML = humidit;
+
+  if (day < 10) {
+   day = `0${day}`;
+  } else {
+    day = day;
+  }
+
+  if (hour < 10) {
+    hour = `0${hour}`;
+  } else {
+    hour = hour;
+  }
+
+  if (minute < 10) {
+    minute = `0${minute}`
+  } else {
+    minute = minute;
+  }
+
+  currentDate.innerHTML = `${day} ${month}, ${hour}:${minute}`;
 }
 
 function getCityObect(city) {
