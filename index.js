@@ -10,10 +10,7 @@ function refreshWeatherData(response) {
   let currentDate = document.querySelector("#date");
   let time = new Date(response.data.time * 1000);
   let iconImage = document.querySelector("#icon");
-  iconImage.innerHTML = `<img src="${response.data.condition.icon_url}" class="icon" />`
-
-
-  console.log(response.data.condition.icon_url)
+  iconImage.innerHTML = `<img src="${response.data.condition.icon_url}" class="icon" />`;
 
   tempDescription.innerHTML = response.data.condition.description;
   searchedCity.innerHTML = response.data.city;
@@ -27,28 +24,40 @@ function formatDate(time) {
   let day = time.getDate();
   let hour = time.getHours();
   let minute = time.getMinutes();
-  let months = ["Jan", "Feb", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  let months = [
+    "Jan",
+    "Feb",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   let month = months[time.getMonth() - 1];
 
   if (day < 10) {
     day = `0${day}`;
-   } else {
-     day = day;
-   }
- 
-   if (hour < 10) {
-     hour = `0${hour}`;
-   } else {
-     hour = hour;
-   }
- 
-   if (minute < 10) {
-     minute = `0${minute}`
-   } else {
-     minute = minute;
-   }
+  } else {
+    day = day;
+  }
 
-   return `${day} ${month}, ${hour}:${minute}`;
+  if (hour < 10) {
+    hour = `0${hour}`;
+  } else {
+    hour = hour;
+  }
+
+  if (minute < 10) {
+    minute = `0${minute}`;
+  } else {
+    minute = minute;
+  }
+
+  return `${day} ${month}, ${hour}:${minute}`;
 }
 
 function getCityObect(city) {
@@ -64,7 +73,28 @@ function searchCity(event) {
   getCityObect(searchFormInput.value);
 }
 
+function displayWeeklyForecast() {
+  let weeklyForecast = document.querySelector("#weekly-forecast");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let forecastHTML = "";
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="daily-forecast">
+    <p class="day">${day}</p>
+    <p class="day-icon"></p>
+    <p class="day-temp"></p>
+    </div>
+    `;
+  });
+
+  weeklyForecast.innerHTML = forecastHTML;
+}
+
 let submitForm = document.querySelector("#submit-form");
 submitForm.addEventListener("submit", searchCity);
 
 getCityObect("Cape Town");
+displayWeeklyForecast();

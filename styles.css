@@ -74,6 +74,7 @@ body {
   align-items: center;
   justify-content: space-around;
   border-top: 2px solid #545253;
+  border-bottom: 2px solid #545253;
 }
 
 .bottom-part p {
@@ -82,6 +83,16 @@ body {
 
 p span {
   font-weight: bold;
+}
+
+.weekly-forecast {
+  color: #d3d3d3;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: #2a2627;
+  justify-content: space-around;
 }
 
 .btn {
