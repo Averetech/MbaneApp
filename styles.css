@@ -88,11 +88,29 @@ p span {
 .weekly-forecast {
   color: #d3d3d3;
   display: flex;
+  width: 100%;
   align-items: center;
   border-radius: 10px;
   margin-top: 20px;
+  padding: 20px 0;
   background-color: #2a2627;
   justify-content: space-around;
+}
+
+.day-icon {
+  width: 40px;
+  display: block;
+  margin: 0 auto;
+}
+
+.daily-temp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.day {
+  text-align: center;
 }
 
 .btn {
