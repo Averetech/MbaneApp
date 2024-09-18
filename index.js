@@ -70,13 +70,9 @@ function displayWeeklyForecast(response) {
     `;
     }
   });
-
   let weeklyForecast = document.querySelector("#weekly-forecast");
   weeklyForecast.innerHTML = forecastHTML;
 }
-
-let weeklyForecastBtn = document.querySelector("#btn");
-console.log(weeklyForecastBtn);
 
 let submitForm = document.querySelector("#submit-form");
 submitForm.addEventListener("submit", searchCity);
