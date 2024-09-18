@@ -46,38 +46,10 @@ function getDayForecast(timeStamp) {
 function getForecast(city) {
   let apiKey = "1e34ff4f3f045a566c8e39at1b7beo2f";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(weeklyForecastDisplay);
+  axios.get(apiUrl).then(displayWeeklyForecast);
 }
 
-/*
 function displayWeeklyForecast(response) {
-  let forecastHTML = "";
-  let dailyArray = response.data.daily;
-
-  dailyArray.forEach(function (day, index) {
-    if (index < 5) {
-      forecastHTML =
-        forecastHTML +
-        `
-    <div class="daily-forecast">
-    <p class="day">${getDayForecast(day.time)}</p>
-    <img src="${day.condition.icon_url}" class="day-icon"/>
-    <div class="daily-temp">
-    <strong>${Math.round(day.temperature.maximum)}°</strong>/<div>${Math.round(
-          day.temperature.minimum
-        )}°</div>
-    </div>
-    </div>
-    `;
-    }
-  });
-
-  let weeklyForecast = document.querySelector("#weekly-forecast");
-  weeklyForecast.innerHTML = forecastHTML;
-}
-*/
-
-function weeklyForecastDisplay(response) {
   let forecastHTML = "";
   let dailyArray = response.data.daily;
 
@@ -104,7 +76,7 @@ function weeklyForecastDisplay(response) {
 }
 
 let weeklyForecastBtn = document.querySelector("#btn");
-weeklyForecastBtn.addEventListener("click", weeklyForecastDisplay);
+console.log(weeklyForecastBtn);
 
 let submitForm = document.querySelector("#submit-form");
 submitForm.addEventListener("submit", searchCity);
