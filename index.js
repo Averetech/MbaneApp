@@ -70,6 +70,7 @@ function displayWeeklyForecast(response) {
     `;
     }
   });
+
   let weeklyForecast = document.querySelector("#weekly-forecast");
   weeklyForecast.innerHTML = forecastHTML;
 }

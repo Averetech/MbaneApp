@@ -85,15 +85,15 @@ p span {
   font-weight: bold;
 }
 
-.weekly-forecast {
+#weekly-forecast {
   color: #d3d3d3;
-  display: flex;
   width: 100%;
-  align-items: center;
   border-radius: 10px;
   margin-top: 20px;
   padding: 20px 0;
   background-color: #2a2627;
+  display: flex;
+  align-items: center;
   justify-content: space-around;
 }
 
